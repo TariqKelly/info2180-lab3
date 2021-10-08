@@ -4,8 +4,6 @@ window.onload = function(){
     var boardState = ["e","e","e","e","e","e","e","e","e"];
     var play = 0;
 
-    
-
     for (const boardItem of board) {
         boardItem.className = "square";
         boardItem.addEventListener("click", function(){
@@ -16,7 +14,7 @@ window.onload = function(){
                     boardItem.innerHTML = "X";
 
                     console.log(boardState);
-                    console.log(boardState.indexOf("X"))
+                    console.log(boardState.indexOf("X"));
 
                     play = play + 1;
                     winCheck()
@@ -55,6 +53,7 @@ window.onload = function(){
             boardItem.classList.remove("hover");
             
         });
+        
 
      winCheck = () => {
          if (boardState[0] == "X" && boardState[1] == "X" && boardState[2] == "X"){
@@ -129,6 +128,10 @@ window.onload = function(){
             document.getElementById("status").classList.add("you-won");
        }
      }
+
+    document.getElementsByClassName("btn")[0].onclick = () => {
+        location.reload();
+    }
     };
     
 }
