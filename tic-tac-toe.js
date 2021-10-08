@@ -7,7 +7,7 @@ window.onload = function(){
     for (const boardItem of board) {
         boardItem.className = "square";
         boardItem.addEventListener("click", function(){
-                
+            
                 if(play == 0){
                     boardState.splice(boardArray.indexOf(boardItem),1,"X")
                     boardItem.classList.add("X");
@@ -17,6 +17,8 @@ window.onload = function(){
                     console.log(boardState.indexOf("X"));
 
                     play = play + 1;
+
+                    preventCheat(boardItem);
                     winCheck()
                 }
                 
@@ -29,6 +31,8 @@ window.onload = function(){
                     console.log(boardState.indexOf("O"))
 
                     play = play + 1;
+
+                    preventCheat(boardItem);
                     winCheck()
                 }
                 else{
@@ -40,6 +44,8 @@ window.onload = function(){
                     console.log(boardState.indexOf("X"))
 
                     play = play + 1;
+
+                    preventCheat(boardItem);
                     winCheck()
                 }  
                 
@@ -59,36 +65,39 @@ window.onload = function(){
          if (boardState[0] == "X" && boardState[1] == "X" && boardState[2] == "X"){
              document.getElementById("status").innerHTML = "Congratulations! X is the Winner";
              document.getElementById("status").classList.add("you-won");
+
          }
          else if (boardState[0] == "X" && boardState[3] == "X" && boardState[6] == "X"){
             document.getElementById("status").innerHTML = "Congratulations! X is the Winner";
              document.getElementById("status").classList.add("you-won");
+
         }
         else if (boardState[0] == "X" && boardState[4] == "X" && boardState[8] == "X"){
             document.getElementById("status").innerHTML = "Congratulations! X is the Winner";
              document.getElementById("status").classList.add("you-won");
+
         }
 
         else if (boardState[2] == "X" && boardState[5] == "X" && boardState[8] == "X"){
             document.getElementById("status").innerHTML = "Congratulations! X is the Winner";
-             document.getElementById("status").classList.add("you-won");
+            document.getElementById("status").classList.add("you-won");
         }
         else if (boardState[6] == "X" && boardState[7] == "X" && boardState[8] == "X"){
             document.getElementById("status").innerHTML = "Congratulations! X is the Winner";
-             document.getElementById("status").classList.add("you-won");
+            document.getElementById("status").classList.add("you-won");
         }
 
         else if (boardState[2] == "X" && boardState[4] == "X" && boardState[6] == "X"){
             document.getElementById("status").innerHTML = "Congratulations! X is the Winner";
-             document.getElementById("status").classList.add("you-won");
+            document.getElementById("status").classList.add("you-won");
         }
         else if (boardState[1] == "X" && boardState[4] == "X" && boardState[4] == "X"){
             document.getElementById("status").innerHTML = "Congratulations! X is the Winner";
-             document.getElementById("status").classList.add("you-won");
+            document.getElementById("status").classList.add("you-won");
         }
         else if (boardState[3] == "X" && boardState[4] == "X" && boardState[5] == "X"){
             document.getElementById("status").innerHTML = "Congratulations! X is the Winner";
-             document.getElementById("status").classList.add("you-won");
+            document.getElementById("status").classList.add("you-won");
         }
 
 
@@ -98,20 +107,20 @@ window.onload = function(){
             document.getElementById("status").classList.add("you-won");
         }
         else if (boardState[0] == "O" && boardState[3] == "O" && boardState[6] == "O"){
-           document.getElementById("status").innerHTML = "Congratulations! O is the Winner";
+            document.getElementById("status").innerHTML = "Congratulations! O is the Winner";
             document.getElementById("status").classList.add("you-won");
        }
        else if (boardState[0] == "O" && boardState[4] == "O" && boardState[8] == "O"){
-           document.getElementById("status").innerHTML = "Congratulations! O is the Winner";
+            document.getElementById("status").innerHTML = "Congratulations! O is the Winner";
             document.getElementById("status").classList.add("you-won");
        }
 
        else if (boardState[2] == "O" && boardState[5] == "O" && boardState[8] == "O"){
-           document.getElementById("status").innerHTML = "Congratulations! O is the Winner";
+            document.getElementById("status").innerHTML = "Congratulations! O is the Winner";
             document.getElementById("status").classList.add("you-won");
        }
        else if (boardState[6] == "O" && boardState[7] == "O" && boardState[8] == "O"){
-           document.getElementById("status").innerHTML = "Congratulations! O is the Winner";
+            document.getElementById("status").innerHTML = "Congratulations! O is the Winner";
             document.getElementById("status").classList.add("you-won");
        }
 
@@ -133,6 +142,10 @@ window.onload = function(){
         location.reload();
     }
     };
+
+    preventCheat = (boardItem) => {
+            boardItem.style.pointerEvents = "none";
+    }
     
 }
 
