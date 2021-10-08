@@ -34,6 +34,15 @@ window.onload = function(){
                     play = play + 1;
                 }    
         });
+
+        boardItem.addEventListener("mousemove", () => {
+            boardItem.classList.add("hover");
+            
+        });
+        boardItem.addEventListener("mouseleave", () => {
+            boardItem.classList.remove("hover");
+            
+        });
     };
     
 }
